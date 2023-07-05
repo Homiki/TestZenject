@@ -5,6 +5,8 @@ using TMPro;
 using System;
 using Zenject;
 
+
+[Serializable]
 public class FizzBuzz : IFizzBuzz
 {
     public TextMeshProUGUI fizz_buzz_display;
@@ -25,6 +27,8 @@ public class FizzBuzz : IFizzBuzz
     }
     public void AddToList()
     {
+        display_list.Clear();
+
         Debug.Log("FizzBuzz was called");
         Debug.Log(RNG.number);
 
