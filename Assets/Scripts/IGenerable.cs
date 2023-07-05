@@ -4,6 +4,6 @@ using UnityEngine;
 
 public interface IGenerable
 {
-    void RandomNumber(int number);
+    void RandomNumber();
 }
 
