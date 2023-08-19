@@ -14,7 +14,7 @@ public class FizzBuzzService
     {
         _generator = generator;
         _fizzBuzzView = fizzBuzzView;
-
+        Debug.Log("Started");
         StartFizzBuzz();
     }
 

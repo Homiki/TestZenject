@@ -9,7 +9,7 @@ namespace DI
         public FizzBuzzService fizzBuzzService;
         public override void InstallBindings()
         {
-            Container.BindInterfacesAndSelfTo<FizzBuzzService>().FromInstance(fizzBuzzService).AsSingle();
+            //Container.BindInterfacesAndSelfTo<FizzBuzzService>().FromInstance(fizzBuzzService).AsSingle();
         }
     }
 }
