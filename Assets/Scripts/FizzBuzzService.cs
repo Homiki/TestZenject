@@ -8,6 +8,7 @@ public class FizzBuzzService
 {
     private readonly IRandomNumber _generator;
     private readonly FizzBuzzView _fizzBuzzView;
+    private List<int> displayList;
 
     public FizzBuzzService(FizzBuzzView fizzBuzzView, IRandomNumber generator)
     {
@@ -21,11 +22,12 @@ public class FizzBuzzService
     {
         // 1. Pobieramy liczbę z Generatora;
         var number = _generator.GenerateNumber();
-        
+
         // 2. generujesz liczbę liczb ktorą wylosowales
         // number for (number razy) GenerateNumber();
         // tablica/hashset/lista
-        
+        AddToList();
+
         //3. Przejść po wszystkich elementach i sprawdź fizzbuzz;
         // string ValidFizzBuzz(number[i]) 
         
@@ -34,19 +36,33 @@ public class FizzBuzzService
     
     public void AddToList()
     {
-        displayList.Clear();
+        //displayList.Clear();
 
-        Debug.Log(RandomNumberService.number);
+        //Debug.Log(RandomNumberService.number);
 
-        //generator.RandomNumber();
-        displayList = new List<int>();
+        ////generator.RandomNumber();
+        //displayList = new List<int>();
 
-        for (int i = 1; i <= RandomNumberService.number; i++)
-        {
-            displayList.Add(i);
+        //for (int i = 1; i <= RandomNumberService._number; i++)
+        //{
+        //    displayList.Add(i);
+        //}
+        //FizzBuzzGenerator(displayList, _fizzBuzzView);
+
+            displayList.Clear();
+
+            Debug.Log(_generator.GenerateNumber());
+
+            //generator.RandomNumber();
+            displayList = new List<int>();
+
+            for (int i = 1; i <= _generator.GenerateNumber(); i++)
+            {
+                displayList.Add(i);
+            }
+
+            FizzBuzzGenerator(displayList, _fizzBuzzView.FizzBuzzText);
         }
-        FizzBuzzGenerator(displayList, fizzBuzzDisplay);
-    }
 
     public string FizzBuzzGenerator(List<int> displayList, TextMeshProUGUI fizzBuzzDisplay)
     {
