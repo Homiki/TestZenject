@@ -1,12 +1,15 @@
 using UnityEngine;
 using Zenject;
 
-[CreateAssetMenu(fileName = "TextDisplayer", menuName = "Installers/TextDisplayer")]
-public class TextDisplayer : ScriptableObjectInstaller<TextDisplayer>
+namespace DI
 {
-    public FizzBuzz fizzBuzz;
-    public override void InstallBindings()
+    [CreateAssetMenu(fileName = "TextDisplayer", menuName = "Installers/TextDisplayer")]
+    public class TextDisplayer : ScriptableObjectInstaller<TextDisplayer>
     {
-        Container.BindInterfacesAndSelfTo<FizzBuzz>().FromInstance(fizzBuzz).AsSingle();
+        public FizzBuzzService fizzBuzzService;
+        public override void InstallBindings()
+        {
+            Container.BindInterfacesAndSelfTo<FizzBuzzService>().FromInstance(fizzBuzzService).AsSingle();
+        }
     }
 }

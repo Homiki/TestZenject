@@ -1,15 +1,16 @@
 using UnityEngine;
 using Zenject;
 
-public class DefaultInstaller : MonoInstaller<DefaultInstaller>{
-
-
-    
-    public override void InstallBindings()
+namespace DI
+{
+    public class DefaultInstaller : MonoInstaller<DefaultInstaller>
     {
-        //Container.Bind<IFizzBuzz>().To<FizzBuzz>().AsSingle();
-        Container.Bind<IGenerable>().To<RNG>().AsSingle();
-
-        
+        [SerializeField] private FizzBuzzView _fizzBuzzView;
+        public override void InstallBindings()
+        {
+            Container.Bind<IRandomNumber>().To<RandomNumberService>().AsSingle();
+            Container.BindInstance(_fizzBuzzView).AsSingle();
+            Container.Bind<FizzBuzzService>().AsSingle();
+        }
     }
 }
